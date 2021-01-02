@@ -14,4 +14,4 @@ if (!$myWindowsPrincipal.IsInRole($adminRole)) {
 
 $Host.UI.RawUI.WindowTitle = 'Prompt (Admin)'
 
-echo ""
+echo "run run.ps1"
