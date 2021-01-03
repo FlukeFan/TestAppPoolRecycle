@@ -1,7 +1,7 @@
 
 # Clean up
 Remove-Website -Name TestAppPoolRecycle -ErrorAction Ignore
-Remove-Item App -Recurse -ErrorAction Ignore
+Remove-Item RecycleApp -Recurse -ErrorAction Ignore
 
-dotnet new web -o App
-dotnet publish App
+dotnet new web -o RecycleApp
+dotnet publish RecycleApp
