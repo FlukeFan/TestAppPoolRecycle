@@ -1,4 +1,6 @@
 
+$ErrorActionPreference = "Stop"
+
 # Clean up
 Remove-Website -Name TestAppPoolRecycle -ErrorAction Ignore
 Remove-WebAppPool -Name TestAppPoolRecycle -ErrorAction Ignore
