@@ -1,10 +1,12 @@
 
-$ErrorActionPreference = "Stop"
+$ErrorActionPreference = "SilentlyContinue"
 
 # Clean up
-Remove-Website -Name TestAppPoolRecycle -ErrorAction Ignore
-Remove-WebAppPool -Name TestAppPoolRecycle -ErrorAction Ignore
-Remove-Item RecycleApp -Recurse -ErrorAction Ignore
+Remove-Website -Name TestAppPoolRecycle
+Remove-WebAppPool -Name TestAppPoolRecycle
+Remove-Item RecycleApp -Recurse
+
+$ErrorActionPreference = "Stop"
 
 # build a default app
 dotnet new web -o RecycleApp
