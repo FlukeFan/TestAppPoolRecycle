@@ -23,12 +23,14 @@ New-Website -Name TestAppPoolRecycle -ApplicationPool TestAppPoolRecycle -Port 8
 $startupTime = Measure-Command -Expression { Invoke-WebRequest -URI http://localhost:8089 -TimeoutSec 120 }
 Write-Host "Took $($startupTime.TotalMilliseconds)ms to startup"
 
-# recycle the pool
-Restart-WebAppPool TestAppPoolRecycle
+For ($i=0; $i -le 10; $i++) {
+    # recycle the pool
+    Restart-WebAppPool TestAppPoolRecycle
 
-# without sleep, the site fails with "503.0 - Service Unavailable" - which doesn't seem correct?
-# Start-Sleep -milliseconds 200
+    # without sleep, the site fails with "503.0 - Service Unavailable" - which doesn't seem correct?
+    Start-Sleep -milliseconds 200
 
-# measure time after recycle
-$startupAfterRecycleTime = Measure-Command -Expression { Invoke-WebRequest -URI http://localhost:8089 -TimeoutSec 120 }
-Write-Host "Took $($startupAfterRecycleTime.TotalMilliseconds)ms to startup after recycle"
+    # measure time after recycle
+    $startupAfterRecycleTime = Measure-Command -Expression { Invoke-WebRequest -URI http://localhost:8089 -TimeoutSec 120 }
+    Write-Host "Took $($startupAfterRecycleTime.TotalMilliseconds)ms to startup after recycle"
+}
