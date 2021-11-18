@@ -10,6 +10,7 @@ $ErrorActionPreference = "Stop"
 
 # build a default app
 dotnet new web -o RecycleApp
+copy web.config RecycleApp
 dotnet publish RecycleApp
 
 # create a website where the pool has disabled overlapping rotation
