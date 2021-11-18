@@ -4,7 +4,7 @@ services:
   - iis
 
 install:
-  - choco install dotnet-aspnetcoremodule-v2 choco install dotnet-aspnetcoremodule-v2 --version=15.0.20336
+  - choco install dotnet-aspnetcoremodule-v2 --version=15.0.20336
 
 build_script:
   - powershell -File .\Run.ps1
