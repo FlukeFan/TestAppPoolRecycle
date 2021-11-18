@@ -28,7 +28,7 @@ For ($i=0; $i -le 10; $i++) {
     Restart-WebAppPool TestAppPoolRecycle
 
     # without sleep, the site fails with "503.0 - Service Unavailable" - which doesn't seem correct?
-    Start-Sleep -milliseconds 200
+    # Start-Sleep -milliseconds 200
 
     # measure time after recycle
     $startupAfterRecycleTime = Measure-Command -Expression { Invoke-WebRequest -URI http://localhost:8089 -TimeoutSec 120 }
