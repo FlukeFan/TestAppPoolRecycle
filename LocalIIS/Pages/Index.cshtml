@@ -42,6 +42,7 @@
         function startHitCount(elHitCount, elErrorCount) {
             hitCount = 0;
             errorCount = 0;
+            $('#errors').empty();
             var r = () => render(elHitCount, elErrorCount);
             r();
 
