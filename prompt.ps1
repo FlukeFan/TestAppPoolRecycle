@@ -12,6 +12,14 @@ if (!$myWindowsPrincipal.IsInRole($adminRole)) {
     [System.Environment]::Exit(0)
 }
 
-$Host.UI.RawUI.WindowTitle = 'Prompt (Admin)'
+$Host.UI.RawUI.WindowTitle = 'TestAppPoolRecycle (Admin)'
 
-echo "run run.ps1"
+$env:DOTNET_CLI_TELEMETRY_OPTOUT = 'true'
+$env:Path = "${env:ProgramFiles}\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\;${env:ProgramFiles}\Microsoft Visual Studio\2022\Professional\Common7\IDE\;${env:ProgramFiles}\Microsoft Visual Studio\2022\Community\Common7\IDE\;" + $env:Path
+$env:Path = 'C:\Program Files\dotnet\;' + $env:Path
+
+function sln  { devenv TestAppPoolRecycle.sln }
+
+echo ""
+
+"sln = $function:sln"
