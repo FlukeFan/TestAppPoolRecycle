@@ -4,7 +4,71 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div>
+    Hit count: <span id="hitCount">not started</span>
 </div>
+<div>
+    Errors: <span id="errorCount">not started</span>
+</div>
+<div>
+    <button onclick="onClickStart()">Start</button>
+</div>
+<div>
+    <button onclick="onClickStop()">Stop</button>
+</div>
+
+@section Scripts {
+    <script>
+        $(function () {
+        });
+
+        var hitCount = 0;
+        var errorCount = 0;
+        var run = false;
+
+        function onClickStop() {
+            run = false;
+        }
+
+        function onClickStart() {
+            run = true;
+            startHitCount($('#hitCount'), $('#errorCount'));
+        }
+
+        function startHitCount(elHitCount, elErrorCount) {
+            hitCount = 0;
+            errorCount = 0;
+            var r = () => render(elHitCount, elErrorCount);
+            r();
+
+            for (var i = 0; i < 10; i++) {
+                start(r);
+            }
+        }
+
+        function start(r) {
+            if (!run) {
+                return;
+            }
+
+            $.ajax({
+                url: '/Count',
+                success: () => {
+                    hitCount++;
+                    r();
+                    start(r);
+                },
+                error: () => {
+                    errorCount++;
+                    r();
+                    start(r);
+                }
+            });
+        }
+
+        function render(elHitCount, elErrorCount) {
+            elHitCount.text(hitCount);
+            elErrorCount.text(errorCount);
+        }
+    </script>
+}
