@@ -16,6 +16,10 @@
 <div>
     <button onclick="onClickStop()">Stop</button>
 </div>
+<div>errors:</div>
+<div id="errors" style="max-height: 200px; overflow: auto;">
+
+</div>
 
 @section Scripts {
     <script>
@@ -58,7 +62,8 @@
                     r();
                     start(r);
                 },
-                error: () => {
+                error: (xhr, status, error) => {
+                    $('#errors').prepend(`<div>${xhr.status}: ${error}</div>`);
                     errorCount++;
                     r();
                     start(r);
