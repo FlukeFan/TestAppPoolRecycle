@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32819.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecycleApp", "RecycleApp\RecycleApp.csproj", "{143D25EC-32AF-410B-B992-5BB785C8BD65}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_root", "_root", "{36611317-7F78-4127-8DCC-1FBC324E9DA5}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
@@ -15,16 +13,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_root", "_root", "{36611317
 		web.config = web.config
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalIIS", "LocalIIS\LocalIIS.csproj", "{7265F35C-D6D5-4DA5-8BA3-8C8B17810791}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{143D25EC-32AF-410B-B992-5BB785C8BD65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{143D25EC-32AF-410B-B992-5BB785C8BD65}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{143D25EC-32AF-410B-B992-5BB785C8BD65}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{143D25EC-32AF-410B-B992-5BB785C8BD65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7265F35C-D6D5-4DA5-8BA3-8C8B17810791}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7265F35C-D6D5-4DA5-8BA3-8C8B17810791}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7265F35C-D6D5-4DA5-8BA3-8C8B17810791}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7265F35C-D6D5-4DA5-8BA3-8C8B17810791}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

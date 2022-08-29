@@ -1,0 +1,16 @@
+{
+  "profiles": {
+    "IIS": {
+      "commandName": "IIS",
+      "launchBrowser": true
+    }
+  },
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iis": {
+      "applicationUrl": "http://localhost:8090",
+      "sslPort": 0
+    }
+  }
+}
