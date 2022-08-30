@@ -17,7 +17,16 @@ namespace LocalIIS
             try
             {
                 _server = new Socket(_endpoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
-                _server.Bind(_endpoint);
+
+                try
+                {
+                    _server.Bind(_endpoint);
+                }
+                catch (SocketException)
+                {
+                    return;
+                }
+
                 _server.Listen();
 
                 _ = Task.Run(async () =>
