@@ -23,3 +23,4 @@ function sln  { devenv TestAppPoolRecycle.sln }
 echo ""
 
 "sln = $function:sln"
+"Run './run.ps1' to test app pool recycle"

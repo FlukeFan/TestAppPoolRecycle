@@ -1,3 +1,10 @@
+using LocalIIS;
+
+using var overlapTester = new OverlapTester();
+
+overlapTester.StartServer();
+await overlapTester.VerifyServerAsync();
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
